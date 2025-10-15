@@ -1,26 +1,46 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background: #f5f5f5;
+  background: #393E3B;
   color: #333;
 }
 
 .app-container {
   display: flex;
-  gap: 2rem;
-  padding: 2rem;
+  gap: 20rem;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-left: 10rem;
 }
 
 .calendar {
-  background: white;
   border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 0.75rem;
+  transform: scale(2);
+  transform-origin: center;
+  color: white;
 }
+
 
 .calendar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.calendar-header button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;  
+
+}
+
+.calendar-header button:hover {
+  color: #e0f2f1;
+  transition: 0.5s;
+  scale: 1.2;
 }
 
 .calendar-grid {
@@ -30,13 +50,17 @@ body {
   margin-top: 1rem;
 }
 
+
 .day, .day-name {
-  text-align: center;
-  padding: 0.5rem;
-  border-radius: 8px;
+  border-radius: 4px;
+  padding: 0.4rem;
+  font-size: 0.9rem;
 }
 
 .day:hover {
+  scale: 1.1;
+  transition: 0.5s;
+  color: #333;
   background: #e0f2f1;
   cursor: pointer;
 }
