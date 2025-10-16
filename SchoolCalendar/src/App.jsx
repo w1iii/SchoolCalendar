@@ -5,18 +5,22 @@ import EventList from "./EventList";
 import "./index.css";
 
 export default function App() {
+  // ✅ Keep your main data source consistent
   const [events, setEvents] = useState(() => {
     const saved = localStorage.getItem("events");
     return saved ? JSON.parse(saved) : {};
   });
+
   const [selectedDate, setSelectedDate] = useState(null);
 
+  // ✅ Save to localStorage when events change
   useEffect(() => {
     localStorage.setItem("events", JSON.stringify(events));
   }, [events]);
 
+  // ✅ Add event to the correct date
   const addEvent = (date, eventName) => {
-    setEvents(prev => ({
+    setEvents((prev) => ({
       ...prev,
       [date]: [...(prev[date] || []), eventName],
     }));
@@ -34,6 +38,8 @@ export default function App() {
           />
         )}
       </div>
+
+      {/* ✅ Pass the real events object */}
       <EventList events={events} />
     </div>
   );
