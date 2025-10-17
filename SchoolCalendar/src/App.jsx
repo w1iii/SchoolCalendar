@@ -29,7 +29,10 @@ export default function App() {
   return (
     <div className="app-container">
       <div className="calendar-section">
-        <Calendar onSelectDate={setSelectedDate} />
+        <Calendar 
+          onSelectDate={setSelectedDate}
+          events={events}
+          />
         {selectedDate && (
           <EventForm
             date={selectedDate}
@@ -40,7 +43,10 @@ export default function App() {
       </div>
 
       {/* ✅ Pass the real events object */}
-      <EventList events={events} />
+      <EventList 
+        events={events}
+        setEvents={setEvents}
+        />
     </div>
   );
 }

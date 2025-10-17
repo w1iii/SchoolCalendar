@@ -1,7 +1,23 @@
-export default function EventList({ events }) {
+export default function EventList({ events, setEvents }) {
   const dates = Object.keys(events).sort(
     (a, b) => new Date(a) - new Date(b)
   );
+
+ function handleDelete(date, i) {
+  setEvents(prevEvents => {
+    const updatedEvents = { ...prevEvents };
+    updatedEvents[date] = updatedEvents[date].filter((_, index) => index !== i);
+
+    // 🧹 If no more events for that date, delete the whole section
+    if (updatedEvents[date].length === 0) {
+      delete updatedEvents[date];
+    }
+
+    return updatedEvents;
+  });
+}
+
+
 
   return (
     <>
@@ -28,7 +44,7 @@ export default function EventList({ events }) {
                 <ul>
                   {events[date].map((e, i) => (
                     <li key={i}>
-                      <button> - </button>
+                      <button onClick={() => {handleDelete(date, i)}}> - </button>
                       {e}
                     </li>
                   ))}

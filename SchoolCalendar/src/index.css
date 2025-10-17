@@ -57,6 +57,19 @@ body {
   font-size: 0.9rem;
 }
 
+.has-event {
+  background: #B7B89F; 
+  color: white;
+  font-weight: bold;
+}
+
+.has-event:hover {
+  background: #9FA07F;
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: 0.15s ease;
+}
+
 .day:hover {
   scale: 1.1;
   transition: 0.5s;
@@ -119,7 +132,8 @@ body {
   grid-template-rows: repeat(auto-fill, minmax(5rem, auto));
   gap: 8px;
   height: 20rem;
-  width: fit-content;;
+  min-width: 10rem;
+  width: fit-content;
   padding: 3rem;
 }
 
