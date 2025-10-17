@@ -16,6 +16,9 @@ export default function Calendar({ onSelectDate, events }) {
   const handlePrev = () => setCurrentMonth(m => (m === 0 ? 11 : m - 1));
   const handleNext = () => setCurrentMonth(m => (m === 11 ? 0 : m + 1));
 
+  console.log("events data:", events);
+
+
   return (
     <div className="calendar">
       <div className="calendar-header">
@@ -34,7 +37,7 @@ export default function Calendar({ onSelectDate, events }) {
         {Array.from({ length: daysInMonth }).map((_, i) => {
           console.log('events in calendar', );
           const date = i + 1;
-          const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, "0")}-${String(date).padStart(2, "0")}`;
+          const dateStr = new Date(currentYear, currentMonth, date).toString();
 
 
           const hasEvents = events[dateStr] && events[dateStr].length > 0;

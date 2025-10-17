@@ -3,10 +3,8 @@ import { useState } from "react";
 export default function EventForm({ date, onAdd, onClose }) {
   const [name, setName] = useState("");
 
-  // Convert `date` to a Date object safely
   const selectedDate = new Date(date);
 
-  // Format it with weekday, month, day, year
   const formattedDate = selectedDate.toLocaleDateString("en-US", {
     weekday: "long",
     month: "long",
